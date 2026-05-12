@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS ECS Fargate App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to ECS Fargate</h1>
+        <p>Frontend hosted using NGINX on AWS ECS</p>
+    </header>
+
+    <section class="container">
+
+        <div class="card">
+            <h2>Containerized Deployment</h2>
+            <p>Application deployed using Docker and Amazon ECS Fargate.</p>
+        </div>
+
+        <div class="card">
+            <h2>Scalable Infrastructure</h2>
+            <p>Auto scaling and load balancing powered by AWS.</p>
+        </div>
+
+        <div class="card">
+            <h2>Secure & Fast</h2>
+            <p>Integrated with ECR, ALB, CloudWatch, and IAM.</p>
+        </div>
+
+    </section>
+
+    <div class="button-container">
+        <button onclick="showMessage()">Click Me</button>
+    </div>
+
+    <script>
+        function showMessage() {
+            alert("Application running successfully on ECS Fargate!");
+        }
+    </script>
+
+</body>
+</html>
