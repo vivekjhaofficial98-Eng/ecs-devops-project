@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 675169529857.dkr.ecr.ap-south-1.amazonaws.com
+
+  build:
+    commands:
+      - echo Build started...
+      - docker build -t my-nginx-app .
+      - docker tag my-nginx-app:latest 675169529857.dkr.ecr.ap-south-1.amazonaws.com/my-nginx-app:latest
+
+  post_build:
+    commands:
+      - echo Pushing image...
+      - docker push 675169529857.dkr.ecr.ap-south-1.amazonaws.com/my-nginx-app:latest
+      - printf '[{"name":"nginx-container","imageUri":"675169529857.dkr.ecr.ap-south-1.amazonaws.com/my-nginx-app:latest"}]' > imagedefinitions.json
+
+artifacts:
+  files:
+    - imagedefinitions.json
