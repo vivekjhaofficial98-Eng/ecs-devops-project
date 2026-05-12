@@ -14,9 +14,11 @@ phases:
 
   post_build:
     commands:
-      - echo Pushing image...
+      - echo Pushing Docker image...
       - docker push 675169529857.dkr.ecr.ap-south-1.amazonaws.com/my-nginx-app:latest
+      - echo Writing imagedefinitions.json...
       - printf '[{"name":"nginx-container","imageUri":"675169529857.dkr.ecr.ap-south-1.amazonaws.com/my-nginx-app:latest"}]' > imagedefinitions.json
+      - cat imagedefinitions.json
 
 artifacts:
   files:
